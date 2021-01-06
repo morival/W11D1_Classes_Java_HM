@@ -7,14 +7,26 @@ public class PrinterTest {
     Printer printer;
 
     @Before
-    public void setUp() {printer = new Printer(10,0);}
+    public void setUp() {printer = new Printer(100,100);}
 
     @Test
-    public void getNumOfPages() {assertEquals(10,printer.getNumOfPages());}
+    public void getNumOfPages() {assertEquals(100,printer.getNumOfPages());}
 
     @Test
-    public void getNumOfCopies() {assertEquals(0, printer.getNumOfCopies());}
+    public void canPrint10Pages() {
+        printer.print(5,2);
+        assertEquals(90, printer.getNumOfPages());
+    }
 
     @Test
-    public void print() {assertEquals(1, printer.getNumOfCopies());}
+    public void cannotPrintIfNoPaper() {
+        printer.print(100,5);
+        assertEquals(100, printer.getNumOfPages());
+    }
+
+    @Test
+    public void doesReduceTonnerVolume() {
+        printer.print(5,2);
+        assertEquals(90, printer.getTonerVolume());
+    }
 }

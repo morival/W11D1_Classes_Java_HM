@@ -14,11 +14,17 @@ public class WaterBottleTest {
     public void getVolume() {assertEquals(100, bottle.getVolume());}
 
     @Test
-    public void drinkWater() {assertEquals(90, bottle.drinkWater());}
+    public void drinkWater() {
+        bottle.drinkWater();
+        assertEquals(90, bottle.getVolume());}
 
     @Test
-    public void emptyBottle() {assertEquals(0, bottle.emptyBottle());}
+    public void emptyBottle() {
+        bottle.emptyBottle();
+        assertEquals(0, bottle.getVolume());}
 
     @Test
-    public void fillBottle() {assertEquals(100, bottle.fillBottle());}
+    public void fillBottle() {
+        bottle.fillBottle();
+        assertEquals(100, bottle.getVolume());}
 }
